@@ -49,7 +49,7 @@
       </b-form>     
        <hr>
         <b-table hover striped :items="users" :fields="fields">
-            <template class="buttons-action" slot="actions" slot-scope="data">
+            <template class="buttons-action" >
                 <b-button variant="warning" @click="loadUser(data.item)" class="mr-2">
                 <i class="fas fa-pencil"></i>
                 </b-button>

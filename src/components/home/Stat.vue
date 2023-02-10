@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    name:'Stat',
+    name:'StatApp',
     props:['title', 'value', 'icon', 'color'],
     computed: {
         style(){

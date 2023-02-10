@@ -28,7 +28,7 @@ import axios from 'axios'
 
 
 export default {
-    name:'Auth',
+    name:'AuthApp',
     data() {
         return {
             showSignup : false,

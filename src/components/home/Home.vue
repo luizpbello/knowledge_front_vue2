@@ -3,13 +3,13 @@
         <PageTitle icon="fa fa-home" main="Dashboard"
             sub="Base de conhecimento." />
             <div class="stats">
-                <Stat title="Categorias" :value="stats.categories"
+                <StatApp title="Categorias" :value="stats.categories"
                 icon="fa fa-folder-open" color="#4dbd74" />
 
-                <Stat title="Artigos" :value="stats.articles"
+                <StatApp title="Artigos" :value="stats.articles"
                 icon="fa fa-file-text" color="#f86c6b" />
 
-                <Stat title="Usuários" :value="stats.users"
+                <StatApp title="Usuários" :value="stats.users"
                 icon="fa fa-users" color="#36a3f7" />
             </div>
     </div>
@@ -18,12 +18,12 @@
 
 <script>
 import PageTitle from '../template/PageTitle';
-import Stat from './Stat'
+import StatApp from './Stat'
 import axios from 'axios'
 import { baseApiUrl } from '@/global';
 export default {
-    name: 'Home',
-    components: { PageTitle, Stat },
+    name: 'HomeApp',
+    components: { PageTitle, StatApp },
     data () {
         return {
             stats: [],

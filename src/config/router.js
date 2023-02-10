@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@/components/home/Home'
+import HomeApp from '@/components/home/Home'
 import AdminPages from '@/components/admin/AdminPages'
 import ArticleByCategory from '@/components/article/ArticlesByCategory'
 import ArticleById from '@/components/article/ArticleById'
-import Auth from '@/components/auth/Auth'
+import AuthApp from '@/components/auth/Auth'
 import { userKey } from '@/global'
 
 Vue.use(VueRouter)
@@ -13,7 +13,7 @@ Vue.use(VueRouter)
 const routes = [{
     name: 'home',
     path: '/',
-    component: Home
+    component: HomeApp
 },{
     name: 'adminPages',
     path: '/admin',
@@ -32,7 +32,7 @@ const routes = [{
 {
     name: 'auth',
     path:'/auth',
-    component: Auth
+    component: AuthApp
 }
 ]
 
