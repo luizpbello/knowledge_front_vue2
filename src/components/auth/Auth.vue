@@ -141,8 +141,8 @@ export default {
   margin-top: 10px;
 }
 
-.auth-modal input {
-  border: 1px soliod #535353;
+.auth-modal b-form-input {
+  border: 1px solid black;
   width: 100%;
   padding: 3px 8px;
   margin-bottom: 15px;
