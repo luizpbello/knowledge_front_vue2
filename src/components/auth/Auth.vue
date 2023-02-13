@@ -142,11 +142,11 @@ export default {
 }
 
 .auth-modal input {
-  border: 1px soliod #bbb;
+  border: 1px soliod #535353;
   width: 100%;
   padding: 3px 8px;
   margin-bottom: 15px;
-  outline: none;
+ 
 }
 
 .auth-modal button {
