@@ -102,8 +102,9 @@ export default {
             const id = this.user.id ? `/${this.user.id}` : ''
             axios[method](`${baseApiUrl}/users${id}`, this.user)
             .then(() => {
-                this.$toasted.global.defaultSucess()
+                this.$toasted.global.defaultSuccess()
                 this.reset()
+                this.loadUsers()
             })
             .catch(showError)
         },
@@ -111,8 +112,8 @@ export default {
             const id = this.user.id 
             axios.delete(`${baseApiUrl}/users/${id}`)
             .then (() => {
-                this.$toasted.global.defaultSucess()
-                this.reset()
+                this.$toasted.global.defaultSuccess()
+                    this.reset()
             
             })  
             .catch(showError)

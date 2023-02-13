@@ -9,15 +9,31 @@
       <hr />
       <div class="auth-title">{{ showSignup ? "Cadastro" : "Login" }}</div>
 
-      <input
+      <b-form-input
         v-if="showSignup"
         v-model="user.name"
         placeholder="Nome"
         type="text"
+        aria-describedby="input-live-help input-live-feedback"
+        trim
+        :state="nameState"
+        lazy-validation
       />
-      <input v-model="user.email" placeholder="E-mail" type="email" />
-      <input v-model="user.password" placeholder="Senha" type="password" />
-      <input
+      <b-form-invalid-feedback id="input-live-feedback">
+        Digite pelo menos 3 letras.
+      </b-form-invalid-feedback>
+      <b-form-input
+        v-model="user.email"
+        placeholder="E-mail"
+        lazy-validation
+        :state="emailState"
+        type="email"
+      />
+      <b-form-invalid-feedback id="input-live-feedback">
+        Digite um email válido.
+      </b-form-invalid-feedback>
+      <b-form-input v-model="user.password" placeholder="Senha" type="password" />
+      <b-form-input
         v-if="showSignup"
         v-model="user.confirmPassword"
         placeholder="Confirmar Senha"
@@ -43,10 +59,29 @@ import axios from "axios";
 
 export default {
   name: "AuthApp",
+  computed: {
+    nameState() {
+      return this.user.name.length > 0 && this.user.name.length >= 3
+        ? true
+        : false;
+    },
+    emailState() {
+      if (!this.user.email.length) {
+        return null;
+      }
+
+      let re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(this.user.email);
+    },
+  },
   data() {
     return {
       showSignup: false,
-      user: {},
+      user: {
+        name: "",
+        email: "",
+      },
     };
   },
   methods: {
@@ -122,12 +157,11 @@ export default {
   border: none;
 }
 
-.auth-modal button:hover, .auth-modal button:focus  {
+.auth-modal button:hover,
+.auth-modal button:focus {
   background-color: #ff7300;
   color: #fff;
 }
-
-
 
 .auth.modal a {
   margin-top: 35px;

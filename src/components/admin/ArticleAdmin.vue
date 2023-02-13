@@ -106,6 +106,7 @@ export default {
                 .then(() => {
                     this.$toasted.global.defaultSuccess()
                     this.reset()
+                    this.loadArticles()
                 })
                 .catch(showError)
         },
